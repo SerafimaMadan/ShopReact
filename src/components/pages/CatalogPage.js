@@ -20,19 +20,19 @@ export default function Catalog() {
 
                             <ul className="catalog-categories nav justify-content-center">
                                 <li className="nav-item">
-                                    <a className="nav-link active" href="">Все</a>
+                                    <a className="nav-link active" href="/products/1.html">Все</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="">Женская обувь</a>
+                                    <a className="nav-link" href="/products/1.html">Женская обувь</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="">Мужская обувь</a>
+                                    <a className="nav-link" href="/products/1.html">Мужская обувь</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="">Обувь унисекс</a>
+                                    <a className="nav-link" href="/products/1.html">Обувь унисекс</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="">Детская обувь</a>
+                                    <a className="nav-link" href="/products/1.html">Детская обувь</a>
                                 </li>
                             </ul>
 
