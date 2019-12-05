@@ -20,7 +20,7 @@ const itemBasicMapper = item => ({
 
 const randomNumber = (start, stop) => {
     return Math.floor(Math.random() * (stop - start + 1)) + start;
-}
+};
 
 const fortune = (ctx, body = null, status = 200) => {
     // Uncomment for delay
@@ -39,7 +39,7 @@ const fortune = (ctx, body = null, status = 200) => {
             resolve();
         }, delay);
     })
-}
+};
 
 const app = new Koa();
 app.use(cors());
@@ -112,7 +112,7 @@ router.post('/api/order', async (ctx, next) => {
     return fortune(ctx, null, 204);
 });
 
-app.use(router.routes())
+app.use(router.routes());
 app.use(router.allowedMethods());
 
 const port = process.env.PORT || 7070;

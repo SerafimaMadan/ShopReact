@@ -1,35 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Bestsellers from '../elements/Bestsellers';
+import Catalog from '../elements/Catalog';
 
 export default function HomePage() {
     return (
-                <main className="container">
-                <div className="row">
-                    <div className="col">
-
-                        <section className="top-sales">
-                            <h2 className="text-center">Хиты продаж!</h2>
-
-                            <div className="preloader">
-                                <span> </span>
-                                <span> </span>
-                                <span> </span>
-                                <span> </span>
-                            </div>
-                        </section>
-
-                        <section className="catalog">
-                            <h2 className="text-center">Каталог</h2>
-
-                            <div className="preloader">
-                                <span> </span>
-                                <span> </span>
-                                <span> </span>
-                                <span> </span>
-                            </div>
-                        </section>
-
-                    </div>
-                </div>
-            </main>
-       );
+        <Fragment>
+            <Bestsellers/>
+            <section className='container catalog'>
+                <h2 className='text-center'>Каталог</h2>
+                <Catalog/>
+            </section>
+        </Fragment>
+    );
 }
