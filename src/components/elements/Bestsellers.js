@@ -15,8 +15,7 @@ export default function Bestsellers() {
 
     const handleBuy = (name, item) => {
         localStorage.setItem(name, JSON.stringify(item))
-                };
-    console.log(items);
+    };
     if (loading) {
         return (
             <LoaderImg> </LoaderImg>
@@ -24,7 +23,6 @@ export default function Bestsellers() {
     }
 
     if (error) {
-        console.log(error);
         return <p className='text-center'>Something went wrong try again</p>;
     }
 

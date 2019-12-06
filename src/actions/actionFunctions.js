@@ -18,8 +18,9 @@ import {
 // загрузка хитов продаж с сервера
 export const fetchBestSales = () => async (dispatch) => {
     dispatch(fetchServicesRequest());
+
     try {
-        const response = await fetch(`${process.env.REACT_APP_BESTSALES_URL}`);
+        const response = await fetch(`${process.env.REACT_APP_TOP_SALES_URL}`);
         if (!response.ok) {
             throw new Error(response.statusText)
         }
@@ -53,6 +54,7 @@ export const fetchDataCategories = (id = false, offset = false, text = false) =>
         try {
             const response = await
                 fetch(`${process.env.REACT_APP_DATA_CATEGORIES_URL + '?categoryId=' + id}`);
+
             if (!response.ok) {
                 throw new Error(response.statusText);
             }
