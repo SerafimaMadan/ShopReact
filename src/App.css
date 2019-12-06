@@ -633,14 +633,8 @@ h2, .h2 {
 }
 
 button.btn:active, button:focus {
-    outline: 0 !important;
+    outline: none !important;
 }
 
-.img-fluid {
-    display: inline-block;
-}
 
-.card {
-    /* height: 66vh;*/
-    min-height: 354px;
-}
+
