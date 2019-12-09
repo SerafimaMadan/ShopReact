@@ -1,7 +1,7 @@
 <h3>The project is an online shoe store. </h3>
 The challenge was to create a working application. 
 You need to start the server with the npm run watch command 
-(do not forget to do npm install first).
+(do not forget to do npm install first). The folder html is source data.
 The application contains the following independent screens (pages):
 <ul>
 <li>Home page</li>
