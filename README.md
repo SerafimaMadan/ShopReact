@@ -1,14 +1,16 @@
-The project is an online shoe store. 
+<h3>The project is an online shoe store. </h3>
 The challenge was to create a working application. 
 You need to start the server with the npm run watch command 
 (do not forget to do npm install first).
 The application contains the following independent screens (pages):
-Home page
-Catalog
-Information page
-Product Page
-Basket
-404
+<ul>
+<li>Home page</li>
+<li>Catalog</li>
+<li>Information page</li>
+<li>Product Page</li>
+<li>Basket</li>
+<li>404</li>
+</ul>
 The navigation center of the application is the header and footer of each screen.
 There is a search widget on all pages in the header. Search on the server works by 
 exact color matching (case insensitive, for example, “black”) and by the content 
