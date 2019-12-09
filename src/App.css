@@ -628,12 +628,17 @@ h2, .h2 {
     border-color: #727e86;
 }
 
-.nav-link:focus, .nav-link:hover {
+.nav-link:focus, .nav-link:hover, .catalog-item-size:hover {
     cursor: pointer;
 }
-
-button.btn:active, button:focus {
+.catalog-item-size:hover{
+color: #ff0000;
+}
+button:active, button:focus {
     outline: none !important;
+}
+.form-control{
+    box-shadow: none!important;
 }
 
 

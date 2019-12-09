@@ -91,7 +91,7 @@ export default function Catalog() {
                 </div>
                 {data.length === 6 &&
                 <div className='text-center'>
-                    <button className='btn btn-outline-primary' onClick={() => yetClick()}>
+                    <button className='btn btn-outline-primary' onClick={() => yetClick(data.length)}>
                         Загрузить ещё
                     </button>
                 </div>}

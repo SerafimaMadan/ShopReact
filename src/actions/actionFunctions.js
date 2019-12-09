@@ -143,6 +143,7 @@ export const fetchDataCategories = (id = false, offset = false, text = false) =>
         }
     }
 };
+
 //поиск товаров
 export const searchGoods = (text) => async (dispatch) => {
     dispatch(findGoods(text));
@@ -157,21 +158,7 @@ export const searchGoods = (text) => async (dispatch) => {
         dispatch(fetchDataCategoriesSuccess(error.message))
     }
 };
-// загрузка данных по товарам
-export const fetchDataProduct = (id) => async (dispatch) => {
-    dispatch(fetchDataCategoriesRequest());
-    try {
-        const response = await fetch(`${process.env.REACT_APP_DATA_CATEGORIES_URL + id}`);
-        if (!response.ok) {
-            throw new Error(response.statusText);
-        }
-        const data = await response.json();
-        dispatch(fetchDataCategoriesSuccess(data));
-    } catch (error) {
-        console.log(error);
-        dispatch(fetchDataCategoriesFailure(error.message))
-    }
-};
+
 // кол-во товаров в корзине
 export const amountGoodsInCart = (count) => (dispatch) => {
     dispatch(iconGoodsInCart(count.length))

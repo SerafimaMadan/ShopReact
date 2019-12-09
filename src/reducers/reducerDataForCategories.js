@@ -1,7 +1,7 @@
 import {
     FETCH_DATA_CATEGORIES_REQUEST,
     FETCH_DATA_CATEGORIES_FAILURE,
-    FETCH_DATA_CATEGORIES_SUCCESS
+    FETCH_DATA_CATEGORIES_SUCCESS,
 
 } from '../actions/actionTypes'
 
@@ -10,8 +10,8 @@ const initialState = {
     text: '',
     load: false,
     err: null,
-};
 
+};
 export default function reducerCategories(state = initialState, action) {
     switch (action.type) {
         case FETCH_DATA_CATEGORIES_REQUEST:
@@ -38,6 +38,7 @@ export default function reducerCategories(state = initialState, action) {
                 load: false,
                 err: null,
             };
+
         default:
             return state;
     }
