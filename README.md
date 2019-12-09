@@ -1,3 +1,23 @@
+The project is an online shoe store. 
+The challenge was to create a working application. 
+You need to start the server with the npm run watch command 
+(do not forget to do npm install first).
+The application contains the following independent screens (pages):
+Home page
+Catalog
+Information page
+Product Page
+Basket
+404
+The navigation center of the application is the header and footer of each screen.
+There is a search widget on all pages in the header. Search on the server works by 
+exact color matching (case insensitive, for example, “black”) and by the content 
+of the word for the name (case insensitive).
+You can get into the basket either by ordering something, or by clicking on the 
+basket icon in the header of the site.
+If there are no goods in the basket at all, then there should not be a pink indicator 
+with a number either.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -43,26 +63,3 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
