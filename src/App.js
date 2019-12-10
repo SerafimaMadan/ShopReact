@@ -9,6 +9,7 @@ import Footer from './components/elements/Footer';
 import ProductPage from './components/pages/ProductPage';
 import Page404 from './components/pages/Page404';
 import CartPage from './components/pages/CartPage';
+import CartSuccess from "./components/elements/CartSuccess";
 
 export default function App() {
 
@@ -22,6 +23,7 @@ export default function App() {
                 <Route path='/cart' exact component={CartPage} />
                 <Route path='/contacts' component={Contacts} replace/>
                 <Route path='/catalog/:id' exact component={ProductPage} />
+                <Route path='/success' component={CartSuccess}/>
                 <Route path='*' component={Page404} />
             </Switch>
             <Footer/>

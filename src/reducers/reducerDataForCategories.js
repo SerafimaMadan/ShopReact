@@ -31,11 +31,13 @@ export default function reducerCategories(state = initialState, action) {
 
         case FETCH_DATA_CATEGORIES_SUCCESS:
             const {data, text} = action.payload;
+            let more = false;
+            data.length < 6 ? more = false : more = true;
             return {
                 ...state,
                 data,
                 text,
-                load: false,
+                load: more,
                 err: null,
             };
 

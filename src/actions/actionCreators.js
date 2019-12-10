@@ -16,7 +16,7 @@ import {
 
     SEND_ORDER_GOODS,
     FETCH_DATA_ORDER_SUCCESS,
-    FETCH_DATA_ORDER_FAILURE
+    FETCH_DATA_ORDER_FAILURE,
 
 } from './actionTypes';
 
@@ -72,6 +72,7 @@ export const fetchCategoriesSuccess = items => ({ // успешное приня
 
 export const fetchDataCategoriesRequest = () => ({ // запрос на сервер для каталога
     type: FETCH_DATA_CATEGORIES_REQUEST,
+
 });
 
 export const fetchDataCategoriesFailure = err => ({ // ошибка принятия данных каталога

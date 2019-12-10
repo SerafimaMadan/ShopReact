@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.4.0",
+    "connected-react-router": "^6.6.1",
     "history": "^4.10.1",
     "nanoid": "^2.1.7",
     "prop-types": "^15.7.2",

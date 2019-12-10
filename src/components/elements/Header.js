@@ -2,12 +2,11 @@ import React, { Fragment } from 'react'
 import headerLogo from '../../img/header-logo.png'
 import { NavLink } from 'react-router-dom'
 import Banner from './Banner';
-import { searchGoods } from '../../actions/actionFunctions'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import useReactRouter from 'use-react-router'
+import Searching from "./Searching";
 
 export default function Header() {
-    const dispatch = useDispatch();
     const { history } = useReactRouter();
     const { count } = useSelector(state => state.serviceAmountGoods);
 
@@ -17,14 +16,7 @@ export default function Header() {
         searchFormEl.querySelector('input').focus()
     };
 
-    const handleChangeTextSearch = ({target}) => {
-        if(target.value) {
-            history.push('catalog');
-            dispatch(searchGoods(target.value))
-        }
-    };
-
-    const handleGoCart = () => {
+     const handleGoCart = () => {
         history.push('cart')
     };
 
@@ -66,9 +58,9 @@ export default function Header() {
                                             )}
                                         </div>
                                     </div>
-                                    <form data-id='search-form' className='header-controls-search-form form-inline invisible'>
-                                        <input className='form-control' placeholder='Поиск' onChange={handleChangeTextSearch}/>
-                                    </form>
+                                    <div data-id='search-form' className='header-controls-search-form form-inline invisible'>
+                                        <Searching />
+                                    </div>
                                 </div>
                             </div>
                         </nav>

@@ -25,7 +25,7 @@ export default function Catalog() {
     function yetClick() {
         let sum = parseInt(num) + 6;
         setNum(() => sum);
-        let out = offset + num;
+        let out = offset + sum;
         dispatch(fetchDataCategories(index, out, text))
     }
 
@@ -49,7 +49,9 @@ export default function Catalog() {
         console.log(error);
         return <p>Something went wrong try again</p>;
     }
-
+    const addDefaultSrc = ({target}) => {
+        target.src='https://vedathemes.com/docs-aamla/wp-content/uploads/sites/3/2018/07/placeholder-1.png'
+    };
     return (
         <Fragment>
             <ul className='catalog-categories nav justify-content-center'>
@@ -73,7 +75,7 @@ export default function Catalog() {
                         <div className='col-4' key={o.id}>
                             <div className='card catalog-item-card'>
                                 <img src={o.images[0]} className='card-img-top img-fluid' alt={o.title}
-                                     style={{width: '90%', height: 200, objectFit: 'cover'}}/>
+                                     style={{width: '90%', height: 200, objectFit: 'cover'}} onError={addDefaultSrc}/>
                                 <div className='card-body'>
                                     <p className='card-text'>{o.title}</p>
                                     <p className='card-text'>{o.price} руб.</p>
@@ -89,9 +91,9 @@ export default function Catalog() {
                         </div>
                     ))}
                 </div>
-                {data && data.length === 6 &&
+                {data.length === 6 &&
                 <div className='text-center'>
-                    <button className='btn btn-outline-primary' onClick={() => yetClick(data.length)}>
+                    <button className='btn btn-outline-primary' onClick={() => yetClick(data.length>6)}>
                         Загрузить ещё
                     </button>
                 </div>}
