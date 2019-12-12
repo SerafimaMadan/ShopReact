@@ -12,7 +12,7 @@ export default function Catalog() {
     const dispatch = useDispatch();
     const [index, setIndex] = useState(null);
     const offset = '&offset=';
-    let [num, setNum] = useState(6);
+    let [num, setNum] = useState(true);
 
     function handleClick(evt, id) {
         [...document.querySelectorAll('.justify-content-center > .nav-item > .nav-link')].map(o => o.classList.remove('active'));
@@ -23,10 +23,10 @@ export default function Catalog() {
     }
 
     function yetClick() {
-        let sum = parseInt(num) + 6;
-        setNum(() => sum);
+        let sum = num + 6;
+        setNum(() =>  sum + 6);
         let out = offset + sum;
-        dispatch(fetchDataCategories(index, out, text))
+        dispatch(fetchDataCategories(index, out, text, offset))
     }
 
     useEffect(() => {
@@ -52,6 +52,8 @@ export default function Catalog() {
     const addDefaultSrc = ({target}) => {
         target.src='https://vedathemes.com/docs-aamla/wp-content/uploads/sites/3/2018/07/placeholder-1.png'
     };
+
+
     return (
         <Fragment>
             <ul className='catalog-categories nav justify-content-center'>
@@ -93,7 +95,7 @@ export default function Catalog() {
                 </div>
                 {data.length === 6 &&
                 <div className='text-center'>
-                    <button className='btn btn-outline-primary' onClick={() => yetClick(data.length>6)}>
+                    <button className='btn btn-outline-primary' onClick={() => yetClick()}>
                         Загрузить ещё
                     </button>
                 </div>}

@@ -10,7 +10,8 @@ const initialState = {
     text: '',
     load: false,
     err: null,
-
+    catalogItems: [],
+    offset: 6,
 };
 export default function reducerCategories(state = initialState, action) {
     switch (action.type) {
@@ -31,17 +32,19 @@ export default function reducerCategories(state = initialState, action) {
 
         case FETCH_DATA_CATEGORIES_SUCCESS:
             const {data, text} = action.payload;
-            let more = false;
-            data.length < 6 ? more = false : more = true;
+            const offset = state.offset + 6;
             return {
                 ...state,
                 data,
                 text,
-                load: more,
+                catalogItems: [...state.catalogItems, ...data, text],
+                offset: offset,
+                load: false,
                 err: null,
+
             };
 
-        default:
+               default:
             return state;
     }
 }

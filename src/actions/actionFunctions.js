@@ -12,7 +12,7 @@ import {
     fetchDataOrderFailure,
     fetchDataOrderSuccess,
     fetchDataCategoriesSuccess,
-    iconGoodsInCart
+    iconGoodsInCart,
 } from './actionCreators';
 
 // загрузка хитов продаж с сервера
@@ -116,7 +116,7 @@ export const fetchDataCategories = (id = false, offset = false, text = false) =>
         }
     } else if (!id && offset && text) { // 6
         try {
-            const response = await fetch(`${process.env.REACT_APP_DATA_CATEGORIES_URL + '?q=' + text + offset}`);
+            const response = await fetch(`${process.env.REACT_APP_DATA_CATEGORIES_URL + '?q=' + text + (offset)}`);
 
             if (!response.ok) {
                 throw new Error(response.statusText);
@@ -129,7 +129,7 @@ export const fetchDataCategories = (id = false, offset = false, text = false) =>
         }
     } else if (!id && offset && !text) { //7
         try {
-            const response = await fetch(`${process.env.REACT_APP_DATA_CATEGORIES_URL + '?' + offset}`);
+            const response = await fetch(`${process.env.REACT_APP_DATA_CATEGORIES_URL + '?' + offset }`);
 
             if (!response.ok) {
                 throw new Error(response.statusText);

@@ -96,11 +96,12 @@ export const fetchDataOrderSuccess = (order) => ({ // успешное прин�
     },
 });
 
-export const fetchDataCategoriesSuccess = (data, text) => ({ // успешное принятие данных каталога
+export const fetchDataCategoriesSuccess = (data, text, offset) => ({ // успешное принятие данных каталога
     type: FETCH_DATA_CATEGORIES_SUCCESS,
     payload: {
         data,
-        text
+        text,
+        offset
     },
 });
 

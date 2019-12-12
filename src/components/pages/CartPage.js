@@ -1,9 +1,9 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import React, {Fragment, useEffect, useState} from 'react';
+import {NavLink} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
 import useReactRouter from 'use-react-router';
-import { amountGoodsInCart, orderGoodsToServer } from '../../actions/actionFunctions';
-import { iconGoodsInCart } from '../../actions/actionCreators';
+import {amountGoodsInCart, orderGoodsToServer} from '../../actions/actionFunctions';
+import {iconGoodsInCart} from '../../actions/actionCreators';
 
 export default function Cart() {
     const [arr, setLocalArr] = useState([]);
@@ -25,7 +25,7 @@ export default function Cart() {
         dispatch(amountGoodsInCart(items));
         setDisabled(true);
 
-        if(arr.length === 1) {
+        if (arr.length === 1) {
             setInputData({
                 phone: '',
                 address: '',
@@ -38,7 +38,7 @@ export default function Cart() {
     useEffect(() => {
         const items = JSON.parse(localStorage.getItem("allItems"));
         setLocalArr(items);
-        if(items && items.length > 0) {
+        if (items && items.length > 0) {
             setDisabled(false)
         }
     }, []);
@@ -51,13 +51,13 @@ export default function Cart() {
 
     const handleSendData = (evt) => {
         evt.preventDefault();
-        if(arr) {
+        if (arr) {
             const allowedOrder = ['count', 'id', 'price'];
             const allowedAccaunt = ['phone', 'address'];
 
-            const goods = arr.map( el => {
+            const goods = arr.map(el => {
                 let filteredOrder = Object.keys(el)
-                    .filter( key => allowedOrder.includes(key) )
+                    .filter(key => allowedOrder.includes(key))
                     .reduce((obj, key) => {
                         return {
                             ...obj, [key]: el[key]
@@ -67,7 +67,7 @@ export default function Cart() {
             });
 
             const filteredAccaunt = Object.keys(inputData)
-                .filter( key => allowedAccaunt.includes(key) )
+                .filter(key => allowedAccaunt.includes(key))
                 .reduce((obj, key) => {
                     return {
                         ...obj, [key]: inputData[key]
@@ -110,21 +110,27 @@ export default function Cart() {
                     {arr &&
                     (<Fragment>
                         {arr.map((el, id) => {
-                            return (
-                                <tr key={id}>
-                                    <th scope="row">{id + 1}</th>
-                                    <td><NavLink to={'/catalog/' + el.id}>{el.title}</NavLink></td>
-                                    <td>{el.size}</td>
-                                    <td>{el.count}</td>
-                                    <td>{el.price} руб.</td>
-                                    <td>{el.price * el.count} руб.</td>
-                                    <td>
-                                        <button className="btn btn-outline-danger btn-sm"
-                                                onClick={() => handleClearLocalstorage(el)}>Удалить
-                                        </button>
-                                    </td>
-                                </tr>
-                            )}
+                                return (
+                                    <tr key={id}>
+                                        <th scope="row">{id + 1}</th>
+                                        <td>
+                                            <NavLink to={'/catalog/' + el.id}>
+                                                {el.title}
+                                            </NavLink>
+                                        </td>
+                                        <td>{el.size}</td>
+                                        <td>{el.count}</td>
+                                        <td>{el.price} руб.</td>
+                                        <td>{el.price * el.count} руб.</td>
+                                        <td>
+                                            <button className="btn btn-outline-danger btn-sm"
+                                                    onClick={() => handleClearLocalstorage(el)}>
+                                                Удалить
+                                            </button>
+                                        </td>
+                                    </tr>
+                                )
+                            }
                         )}
                         <tr>
                             <td colSpan="5" className="text-right">Общая стоимость</td>
@@ -162,7 +168,7 @@ export default function Cart() {
                                    className="form-check-input"
                                    id="agreement"
                                    onChange={handleInputData} checked={inputData.agreement} disabled={disabled}/>
-                            <label className="form-check-label" htmlFor="agreement" >
+                            <label className="form-check-label" htmlFor="agreement">
                                 Согласен с правилами доставки
                             </label>
                         </div>
