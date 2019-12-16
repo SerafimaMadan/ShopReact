@@ -119,7 +119,9 @@ export default function ProductPage({match}) {
         localStorage.setItem('allItems', JSON.stringify(oldArrItems));
         dispatch(amountGoodsInCart(oldArrItems))
     };
-
+    const addDefaultSrc = ({target}) => {
+        target.src='https://vedathemes.com/docs-aamla/wp-content/uploads/sites/3/2018/07/placeholder-1.png'
+    };
     return (
         <Fragment>
             {form.title !== undefined &&
@@ -128,7 +130,7 @@ export default function ProductPage({match}) {
                 <div className="row">
                     <div className="col-5">
                         <img src={form.image} className="img-fluid" alt={form.title}
-                              />
+                             onError={addDefaultSrc} />
                     </div>
                     <div className="col-7">
                         <table className="table table-bordered">

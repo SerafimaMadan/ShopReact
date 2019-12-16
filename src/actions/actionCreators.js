@@ -18,7 +18,9 @@ import {
     FETCH_DATA_ORDER_SUCCESS,
     FETCH_DATA_ORDER_FAILURE,
 
-} from './actionTypes';
+ } from './actionTypes';
+
+
 
 export const findGoods = (text) => ({ // поиск
     type: FIND_GOODS,
@@ -96,11 +98,10 @@ export const fetchDataOrderSuccess = (order) => ({ // успешное прин�
     },
 });
 
-export const fetchDataCategoriesSuccess = (data, text, offset) => ({ // успешное принятие данных каталога
+export const fetchDataCategoriesSuccess = (data, offset) => ({ // успешное принятие данных каталога
     type: FETCH_DATA_CATEGORIES_SUCCESS,
     payload: {
         data,
-        text,
         offset
     },
 });
@@ -111,3 +112,4 @@ export const iconGoodsInCart = count => ({ // иконка кол-ва това�
         count,
     },
 });
+

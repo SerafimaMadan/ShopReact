@@ -12,6 +12,7 @@ const initialState = {
     err: null,
     catalogItems: [],
     offset: 6,
+
 };
 export default function reducerCategories(state = initialState, action) {
     switch (action.type) {
@@ -31,14 +32,11 @@ export default function reducerCategories(state = initialState, action) {
             };
 
         case FETCH_DATA_CATEGORIES_SUCCESS:
-            const {data, text} = action.payload;
-            const offset = state.offset + 6;
+            const {data} = action.payload;
             return {
                 ...state,
                 data,
-                text,
-                catalogItems: [...state.catalogItems, ...data, text],
-                offset: offset,
+                catalogItems: [...state.catalogItems, ...data],
                 load: false,
                 err: null,
 

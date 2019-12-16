@@ -7,7 +7,7 @@ import LoaderImg from "./LoaderImg";
 
 export default function Catalog() {
     const {items, loading, error} = useSelector(state => state.serviceCategories);
-    const {data} = useSelector(state => state.serviceDataCategories);
+    const {data, catalogItems} = useSelector(state => state.serviceDataCategories);
     const {text} = useSelector(state => state.serviceSearch);
     const dispatch = useDispatch();
     const [index, setIndex] = useState(null);
@@ -24,7 +24,7 @@ export default function Catalog() {
 
     function yetClick() {
         let sum = num + 6;
-        setNum(() =>  sum + 6);
+        setNum(() =>  sum);
         let out = offset + sum;
         dispatch(fetchDataCategories(index, out, text, offset))
     }
@@ -53,7 +53,6 @@ export default function Catalog() {
         target.src='https://vedathemes.com/docs-aamla/wp-content/uploads/sites/3/2018/07/placeholder-1.png'
     };
 
-
     return (
         <Fragment>
             <ul className='catalog-categories nav justify-content-center'>
@@ -73,7 +72,7 @@ export default function Catalog() {
             {data && data.length > 0 &&
             (<Fragment>
                 <div className='row'>
-                    {data.map(o => (
+                    {catalogItems.map(o => (
                         <div className='col-4' key={o.id}>
                             <div className='card catalog-item-card'>
                                 <img src={o.images[0]} className='card-img-top img-fluid' alt={o.title}
