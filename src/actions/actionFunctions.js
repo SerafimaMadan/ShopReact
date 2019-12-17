@@ -48,7 +48,7 @@ export const fetchCategories = () => async (dispatch) => {
     }
 };
 // загрузка каталог товаров с сервера
-export const fetchDataCategories = (id = false, offset = false, text = false) => async (dispatch) => {
+export const fetchDataCategories = (id = false, offset = false, text = false, clear = true) => async (dispatch) => {
     dispatch(fetchDataCategoriesRequest());
     if (id && !offset && !text) { // 1
         try {
@@ -59,7 +59,7 @@ export const fetchDataCategories = (id = false, offset = false, text = false) =>
                 throw new Error(response.statusText);
             }
             const data = await response.json();
-            dispatch(fetchDataCategoriesSuccess(data));
+            dispatch(fetchDataCategoriesSuccess(data, clear));
         } catch (error) {
             console.log(error);
             dispatch(fetchDataCategoriesFailure(error.message))
@@ -72,7 +72,7 @@ export const fetchDataCategories = (id = false, offset = false, text = false) =>
                 throw new Error(response.statusText)
             }
             const data = await response.json();
-            dispatch(fetchDataCategoriesSuccess(data, text))
+            dispatch(fetchDataCategoriesSuccess(data, clear))
         } catch (error) {
             console.log(error);
             dispatch(fetchDataCategoriesFailure(error.message))
@@ -85,7 +85,7 @@ export const fetchDataCategories = (id = false, offset = false, text = false) =>
                 throw new Error(response.statusText)
             }
             const data = await response.json();
-            dispatch(fetchDataCategoriesSuccess(data))
+            dispatch(fetchDataCategoriesSuccess(data, clear))
         } catch (error) {
             console.log(error);
             dispatch(fetchDataCategoriesFailure(error.message))
@@ -97,7 +97,7 @@ export const fetchDataCategories = (id = false, offset = false, text = false) =>
                 throw new Error(response.statusText);
             }
             const data = await response.json();
-            dispatch(fetchDataCategoriesSuccess(data));
+            dispatch(fetchDataCategoriesSuccess(data, clear));
         } catch (error) {
             console.log(error);
             dispatch(fetchDataCategoriesFailure(error.message));
@@ -109,7 +109,7 @@ export const fetchDataCategories = (id = false, offset = false, text = false) =>
                 throw new Error(response.statusText);
             }
             const data = await response.json();
-            dispatch(fetchDataCategoriesSuccess(data));
+            dispatch(fetchDataCategoriesSuccess(data, clear));
         } catch (error) {
             console.log(error);
             dispatch(fetchDataCategoriesFailure(error.message));
@@ -122,7 +122,7 @@ export const fetchDataCategories = (id = false, offset = false, text = false) =>
                 throw new Error(response.statusText);
             }
             const data = await response.json();
-            dispatch(fetchDataCategoriesSuccess(data, text));
+            dispatch(fetchDataCategoriesSuccess(data, clear));
         } catch (error) {
             console.log(error);
             dispatch(fetchDataCategoriesFailure(error.message));
@@ -136,7 +136,7 @@ export const fetchDataCategories = (id = false, offset = false, text = false) =>
             }
             const data = await response.json();
 
-            dispatch(fetchDataCategoriesSuccess(data));
+            dispatch(fetchDataCategoriesSuccess(data, clear));
         } catch (error) {
             console.log(error);
             dispatch(fetchDataCategoriesFailure(error.message));
@@ -155,7 +155,7 @@ export const searchGoods = (text) => async (dispatch) => {
         const data = await response.json();
         dispatch(fetchDataCategoriesSuccess(data))
     } catch (error) {
-        dispatch(fetchDataCategoriesSuccess(error.message))
+        dispatch(fetchDataCategoriesFailure(error.message))
     }
 };
 

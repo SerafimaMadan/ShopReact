@@ -26,7 +26,7 @@ export default function Catalog() {
         let sum = num + 6;
         setNum(() =>  sum);
         let out = offset + sum;
-        dispatch(fetchDataCategories(index, out, text, offset))
+        dispatch(fetchDataCategories(index, out, text, false))
     }
 
     useEffect(() => {
@@ -69,7 +69,7 @@ export default function Catalog() {
                     </li>
                 ))}
             </ul>
-            {data && data.length > 0 &&
+            {catalogItems && catalogItems.length > 0 &&
             (<Fragment>
                 <div className='row'>
                     {catalogItems.map(o => (

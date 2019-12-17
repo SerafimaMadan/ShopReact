@@ -32,11 +32,12 @@ export default function reducerCategories(state = initialState, action) {
             };
 
         case FETCH_DATA_CATEGORIES_SUCCESS:
-            const {data} = action.payload;
+            const {data, clear} = action.payload;
+            const catalogItems = clear ? data : [...state.catalogItems, ...data];
             return {
                 ...state,
                 data,
-                catalogItems: [...state.catalogItems, ...data],
+                catalogItems,
                 load: false,
                 err: null,
 
