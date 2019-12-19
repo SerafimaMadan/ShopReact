@@ -13,10 +13,11 @@ export default function Searching() {
     const handleFormSubmit = (event) => {
         event.preventDefault();
         dispatch(push(text));
+
     };
     return (
         <form  onSubmit={handleFormSubmit}>
-            <input className="form-control" placeholder="Поиск" value={text} onChange={handleChange} />
+            <input className="form-control" placeholder="Поиск" value={text} onChange={(event)=>handleChange(event)} />
         </form>
     )
 }
